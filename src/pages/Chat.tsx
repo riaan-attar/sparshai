@@ -147,7 +147,7 @@ const Chat = () => {
                 </div>
                 <div>
                   <h1 className="font-display font-bold text-lg text-foreground">
-                    MindfulPath AI
+                    sparsh.ai
                   </h1>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />

@@ -55,7 +55,7 @@ const Features = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-4">
-            Why Choose MindfulPath?
+            Why Choose sparsh.ai?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             We combine cutting-edge AI technology with proven therapeutic approaches 
