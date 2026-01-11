@@ -13,7 +13,7 @@ const Footer = () => {
                 <Heart className="w-5 h-5 text-primary-foreground" />
               </div>
               <span className="font-display font-bold text-xl text-foreground">
-                MindfulPath
+                sparsh.ai
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-md mb-6">
@@ -23,11 +23,11 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="mailto:support@mindfulpath.com"
+                href="mailto:support@sparsh.ai"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                support@mindfulpath.com
+                support@sparsh.ai
               </a>
             </div>
           </div>
@@ -81,7 +81,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              © 2024 MindfulPath. All rights reserved.
+              © 2024 sparsh.ai. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link

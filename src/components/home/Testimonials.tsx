@@ -5,7 +5,7 @@ const testimonials = [
     name: "Sarah M.",
     role: "Anxiety Recovery",
     content:
-      "MindfulPath has been a game-changer for me. The AI chatbot feels like talking to a friend who truly understands. It helped me through some really tough nights.",
+      "sparsh.ai has been a game-changer for me. The AI chatbot feels like talking to a friend who truly understands. It helped me through some really tough nights.",
     rating: 5,
     avatar: "S",
   },
@@ -37,7 +37,7 @@ const Testimonials = () => {
             Stories of Healing
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Real experiences from people who found support and hope through MindfulPath.
+            Real experiences from people who found support and hope through sparsh.ai.
           </p>
         </div>
 

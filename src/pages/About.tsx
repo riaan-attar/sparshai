@@ -57,7 +57,7 @@ const About = () => {
               <span className="text-sm font-medium text-foreground">Our Story</span>
             </div>
             <h1 className="font-display font-bold text-4xl md:text-5xl text-foreground mb-6">
-              About MindfulPath
+              About sparsh.ai
             </h1>
             <p className="text-lg text-muted-foreground">
               We believe that everyone deserves access to mental health support.
@@ -78,7 +78,7 @@ const About = () => {
                   Our Mission
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  MindfulPath was born from a simple belief: no one should face
+                  sparsh.ai was born from a simple belief: no one should face
                   their mental health struggles alone. We combine cutting-edge AI
                   technology with evidence-based therapeutic approaches to create
                   a platform that's always there when you need it.
@@ -110,7 +110,7 @@ const About = () => {
               Our Values
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              These principles guide everything we do at MindfulPath.
+              These principles guide everything we do at sparsh.ai.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
