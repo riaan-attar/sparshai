@@ -56,7 +56,7 @@ const services = [
     features: ["Mood-lifting content", "Humor clips", "Dopamine activities", "Joy exercises"],
     color: "peach",
     gradient: "from-peach to-peach-light",
-    link: "#",
+    link: "/services/laughing-therapy",
   },
   {
     icon: MessageSquare,
@@ -66,7 +66,7 @@ const services = [
     features: ["Self-reflection", "Emotional conversations", "Venting sessions", "AI support"],
     color: "sage",
     gradient: "from-primary to-sky",
-    link: "/chat",
+    link: "/services/talking-therapy",
   },
   {
     icon: Stethoscope,
@@ -76,7 +76,7 @@ const services = [
     features: ["Licensed therapists", "Personalized plans", "Expert guidance", "Confidential sessions"],
     color: "rose",
     gradient: "from-rose to-rose-light",
-    link: "#",
+    link: "/services/consult-doctor",
   },
   {
     icon: Baby,
@@ -86,7 +86,7 @@ const services = [
     features: ["Child-friendly UI", "Emotional learning", "Calm storytelling", "Fun exercises"],
     color: "sky",
     gradient: "from-sky to-lavender",
-    link: "#",
+    link: "/services/child-therapy",
   },
   {
     icon: Leaf,
@@ -96,17 +96,7 @@ const services = [
     features: ["Mindfulness", "Inner peace", "Spiritual reflections", "Inclusive practices"],
     color: "sage",
     gradient: "from-primary to-mint",
-    link: "#",
-  },
-  {
-    icon: Heart,
-    title: "Special Therapy",
-    description:
-      "Specialized support for trauma recovery, burnout, sleep improvement, and anxiety & depression management.",
-    features: ["Trauma support", "Burnout recovery", "Sleep improvement", "Anxiety relief"],
-    color: "lavender",
-    gradient: "from-lavender to-rose",
-    link: "#",
+    link: "/services/spiritual-therapy",
   },
   {
     icon: MessageCircle,
