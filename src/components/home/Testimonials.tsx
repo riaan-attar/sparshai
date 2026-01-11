@@ -29,7 +29,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-card">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -46,10 +46,10 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              className="relative p-6 bg-card rounded-2xl border border-border/50 shadow-soft hover:shadow-medium transition-all duration-300"
+              className="relative p-6 bg-secondary/50 rounded-2xl border border-border/50 shadow-soft hover:shadow-medium hover:border-primary/30 transition-all duration-300"
             >
               {/* Quote Icon */}
-              <div className="absolute -top-3 -left-3 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+              <div className="absolute -top-3 -left-3 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
                 <Quote className="w-4 h-4 text-primary" />
               </div>
 
@@ -70,7 +70,7 @@ const Testimonials = () => {
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-sage-dark flex items-center justify-center text-primary-foreground font-semibold text-sm">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-sky flex items-center justify-center text-primary-foreground font-semibold text-sm">
                   {testimonial.avatar}
                 </div>
                 <div>

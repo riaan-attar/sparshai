@@ -6,7 +6,7 @@ const CTA = () => {
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 gradient-forest opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-sky/90" />
       
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -16,10 +16,10 @@ const CTA = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6">
+          <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-primary-foreground mb-6">
             Ready to Start Your Healing Journey?
           </h2>
-          <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-primary-foreground/80 text-lg mb-10 max-w-xl mx-auto">
             Take the first step today. Our AI companion is ready to listen, 
             support, and guide you towards better mental wellness.
           </p>
@@ -28,7 +28,7 @@ const CTA = () => {
             <Link to="/chat">
               <Button
                 size="xl"
-                className="gap-3 bg-white text-primary hover:bg-white/90 shadow-medium hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="gap-3 bg-background text-foreground hover:bg-background/90 shadow-medium hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
                 <MessageCircle className="w-5 h-5" />
                 Start Talking Now
@@ -38,7 +38,7 @@ const CTA = () => {
               <Button
                 variant="outline"
                 size="xl"
-                className="gap-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50"
+                className="gap-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50"
               >
                 Explore Services
                 <ArrowRight className="w-5 h-5" />
@@ -47,7 +47,7 @@ const CTA = () => {
           </div>
 
           {/* Privacy Note */}
-          <p className="mt-8 text-sm text-white/60">
+          <p className="mt-8 text-sm text-primary-foreground/60">
             🔒 Your privacy is our priority. All conversations are encrypted and confidential.
           </p>
         </div>

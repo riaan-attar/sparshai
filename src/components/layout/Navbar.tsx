@@ -18,12 +18,12 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-sage-dark flex items-center justify-center shadow-soft group-hover:shadow-glow transition-shadow duration-300">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-sky flex items-center justify-center shadow-soft group-hover:shadow-glow transition-shadow duration-300">
               <Heart className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="font-display font-bold text-xl text-foreground">
@@ -39,8 +39,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                   isActive(link.path)
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "bg-primary/20 text-primary"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                 }`}
               >
                 {link.name}
@@ -61,7 +61,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-xl hover:bg-muted transition-colors"
+            className="md:hidden p-2 rounded-xl hover:bg-secondary transition-colors"
           >
             {isOpen ? (
               <X className="w-6 h-6 text-foreground" />
@@ -82,8 +82,8 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                     isActive(link.path)
-                      ? "bg-primary/10 text-primary"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      ? "bg-primary/20 text-primary"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                   }`}
                 >
                   {link.name}

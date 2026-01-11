@@ -7,9 +7,6 @@ import {
   Smile,
   MessageSquare,
   Stethoscope,
-  Baby,
-  Leaf,
-  Heart,
   ArrowRight,
 } from "lucide-react";
 
@@ -18,43 +15,43 @@ const services = [
     icon: Headphones,
     title: "Audio Therapy",
     description: "Guided meditations & relaxation sounds",
-    color: "bg-sky-light text-sky-dark",
+    color: "bg-sky-light text-sky",
   },
   {
     icon: BookOpen,
     title: "Reading Therapy",
     description: "Motivational articles & affirmations",
-    color: "bg-lavender-light text-lavender-dark",
+    color: "bg-lavender-light text-lavender",
   },
   {
     icon: Activity,
     title: "Yoga Therapy",
     description: "Stress-relief poses & breathing",
-    color: "bg-mint-light text-primary",
+    color: "bg-primary/20 text-primary",
   },
   {
     icon: Smile,
     title: "Laughing Therapy",
     description: "Mood-lifting content & activities",
-    color: "bg-peach-light text-peach-dark",
+    color: "bg-peach-light text-peach",
   },
   {
     icon: MessageSquare,
     title: "Talking Therapy",
     description: "Guided self-reflection sessions",
-    color: "bg-sage-light text-sage-dark",
+    color: "bg-mint-light text-mint",
   },
   {
     icon: Stethoscope,
     title: "Consultant Doctor",
     description: "Professional mental health support",
-    color: "bg-rose-light text-destructive",
+    color: "bg-rose-light text-rose",
   },
 ];
 
 const ServicesPreview = () => {
   return (
-    <section className="py-20 gradient-calm">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -73,7 +70,7 @@ const ServicesPreview = () => {
             <Link
               key={service.title}
               to="/services"
-              className="group p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/40 hover:bg-white/80 hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+              className="group p-4 bg-card/80 backdrop-blur-sm rounded-2xl border border-border/50 hover:bg-card hover:shadow-medium hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
             >
               <div
                 className={`w-12 h-12 ${service.color} rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform duration-300`}
