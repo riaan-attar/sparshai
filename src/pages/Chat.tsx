@@ -7,12 +7,34 @@ import {
   RotateCcw,
   AlertCircle,
 } from "lucide-react";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+// Initialize Gemini AI - for testing purposes only
+// In production, move this to a backend service
+const API_KEY = "AIzaSyCoC2Tgad_3_-tefANqvnCfoidVBeYKhRA";
+const genAI = new GoogleGenerativeAI(API_KEY);
+
+const SYSTEM_PROMPT = `You are sparsh.ai, a compassionate and empathetic mental health support companion. Your role is to:
+- Listen with empathy and without judgment
+- Provide emotional support and validation
+- Offer gentle coping strategies and mindfulness techniques
+- Use warm, caring language with occasional emojis (💚, 💙, 🌸, ✨)
+- Keep responses concise but meaningful (2-4 sentences usually)
+- Never provide medical diagnoses or replace professional help
+- If someone mentions self-harm or crisis, gently encourage them to reach out to emergency services or a crisis helpline
+
+Remember: You're a supportive friend, not a therapist. Be warm, genuine, and helpful.`;
 
 interface Message {
   id: string;
   role: "user" | "assistant";
   content: string;
   timestamp: Date;
+}
+
+interface ChatMessage {
+  role: "user" | "model";
+  parts: { text: string }[];
 }
 
 const quickPrompts = [
@@ -47,38 +69,39 @@ const Chat = () => {
     scrollToBottom();
   }, [messages]);
 
-  const generateResponse = (userMessage: string): string => {
-    const lowerMessage = userMessage.toLowerCase();
+  const generateAIResponse = async (userMessage: string, chatHistory: Message[]): Promise<string> => {
+    try {
+      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+      
+      // Build conversation history for context
+      const history: ChatMessage[] = chatHistory
+        .filter(msg => msg.id !== "welcome")
+        .map(msg => ({
+          role: msg.role === "user" ? "user" : "model",
+          parts: [{ text: msg.content }]
+        }));
 
-    if (lowerMessage.includes("anxious") || lowerMessage.includes("anxiety")) {
-      return "I hear you, and anxiety can feel overwhelming. 💙 Take a slow, deep breath with me. In through your nose for 4 counts... hold for 4... and out through your mouth for 6. You're doing great. Would you like to try a guided breathing exercise, or would you prefer to talk about what's on your mind?";
+      const chat = model.startChat({
+        history: [
+          {
+            role: "user",
+            parts: [{ text: "Please follow these instructions for our conversation: " + SYSTEM_PROMPT }]
+          },
+          {
+            role: "model", 
+            parts: [{ text: "I understand. I'm sparsh.ai, and I'm here to provide compassionate mental health support. I'll listen with empathy, offer gentle coping strategies, and be a supportive presence. How can I help you today? 💚" }]
+          },
+          ...history
+        ],
+      });
+
+      const result = await chat.sendMessage(userMessage);
+      const response = result.response;
+      return response.text();
+    } catch (error) {
+      console.error("Error generating AI response:", error);
+      return "I'm having a little trouble connecting right now. 💙 Please try again in a moment. Remember, I'm here for you.";
     }
-
-    if (lowerMessage.includes("sad") || lowerMessage.includes("depressed")) {
-      return "I'm really sorry you're feeling this way. 💚 Your feelings are valid, and it takes courage to share them. Remember, even in dark moments, you're not alone. Would you like to talk more about what's weighing on you, or shall I share some gentle activities that might help lift your spirits?";
-    }
-
-    if (lowerMessage.includes("sleep") || lowerMessage.includes("insomnia")) {
-      return "Trouble sleeping can be so frustrating. 🌙 Your mind deserves rest, and I'm here to help. Would you like me to guide you through a calming sleep meditation, or would you prefer to talk about what's keeping you awake?";
-    }
-
-    if (lowerMessage.includes("stressed") || lowerMessage.includes("overwhelmed")) {
-      return "It sounds like you're carrying a heavy load right now. 💜 Let's take this one step at a time. What feels like the biggest pressure on you right now? Sometimes just naming it can help lighten the weight.";
-    }
-
-    if (lowerMessage.includes("lonely") || lowerMessage.includes("alone")) {
-      return "Feeling lonely can be really painful, and I want you to know — you matter, and you're not as alone as you might feel right now. 💛 I'm here with you. Would you like to share what's been making you feel this way?";
-    }
-
-    if (lowerMessage.includes("thank") || lowerMessage.includes("helpful")) {
-      return "You're so welcome. 🌸 I'm always here whenever you need to talk. Remember, taking care of your mental health is an act of courage. Is there anything else on your mind?";
-    }
-
-    if (lowerMessage.includes("hello") || lowerMessage.includes("hi") || lowerMessage.includes("hey")) {
-      return "Hello! 😊 It's good to see you here. How are you feeling today? I'm here to listen and support you in any way I can.";
-    }
-
-    return "Thank you for sharing that with me. 💚 Your feelings are valid, and I'm here to listen without judgment. Can you tell me more about how this has been affecting you? Sometimes talking through things can help us see them more clearly.";
   };
 
   const handleSend = async () => {
@@ -92,20 +115,33 @@ const Chat = () => {
     };
 
     setMessages((prev) => [...prev, userMessage]);
+    const currentMessages = [...messages, userMessage];
     setInput("");
     setIsTyping(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const aiResponse = await generateAIResponse(userMessage.content, currentMessages);
+      
+      const assistantMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        role: "assistant",
+        content: aiResponse,
+        timestamp: new Date(),
+      };
 
-    const assistantMessage: Message = {
-      id: (Date.now() + 1).toString(),
-      role: "assistant",
-      content: generateResponse(userMessage.content),
-      timestamp: new Date(),
-    };
-
-    setMessages((prev) => [...prev, assistantMessage]);
-    setIsTyping(false);
+      setMessages((prev) => [...prev, assistantMessage]);
+    } catch (error) {
+      console.error("Error:", error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        role: "assistant",
+        content: "I'm sorry, I couldn't process that. 💚 Please try again.",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
+      setIsTyping(false);
+    }
   };
 
   const handleQuickPrompt = (prompt: string) => {
