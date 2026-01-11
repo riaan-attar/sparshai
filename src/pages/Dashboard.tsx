@@ -9,23 +9,17 @@ import {
   BookOpen,
   Headphones,
   Heart,
-  TrendingUp,
-  Calendar,
-  Settings,
-  User,
   ChevronRight,
   Sparkles,
   Sun,
-  Moon,
-  Cloud,
 } from "lucide-react";
 
 const moodOptions = [
-  { emoji: "😊", label: "Great", color: "bg-primary/20 text-primary" },
-  { emoji: "🙂", label: "Good", color: "bg-sage-light text-sage-dark" },
-  { emoji: "😐", label: "Okay", color: "bg-sky-light text-sky-dark" },
-  { emoji: "😔", label: "Low", color: "bg-lavender-light text-lavender-dark" },
-  { emoji: "😢", label: "Struggling", color: "bg-rose-light text-destructive" },
+  { emoji: "😊", label: "Great", color: "bg-primary/20 text-primary border-primary/30" },
+  { emoji: "🙂", label: "Good", color: "bg-sky-light text-sky border-sky/30" },
+  { emoji: "😐", label: "Okay", color: "bg-lavender-light text-lavender border-lavender/30" },
+  { emoji: "😔", label: "Low", color: "bg-peach-light text-peach border-peach/30" },
+  { emoji: "😢", label: "Struggling", color: "bg-rose-light text-rose border-rose/30" },
 ];
 
 const recentChats = [
@@ -91,8 +85,8 @@ const Dashboard = () => {
                   onClick={() => setSelectedMood(index)}
                   className={`flex flex-col items-center gap-1 p-3 rounded-xl border-2 transition-all duration-200 ${
                     selectedMood === index
-                      ? `${mood.color} border-current`
-                      : "bg-muted border-transparent hover:border-border"
+                      ? mood.color
+                      : "bg-secondary border-border/50 hover:border-primary/30"
                   }`}
                 >
                   <span className="text-2xl">{mood.emoji}</span>
@@ -101,7 +95,7 @@ const Dashboard = () => {
               ))}
             </div>
             {selectedMood !== null && (
-              <div className="mt-4 p-4 bg-sage-light/50 rounded-xl animate-fade-in">
+              <div className="mt-4 p-4 bg-primary/10 rounded-xl border border-primary/20 animate-fade-in">
                 <p className="text-sm text-foreground">
                   {selectedMood <= 1 && "That's wonderful to hear! 🌟 Keep nurturing your well-being."}
                   {selectedMood === 2 && "It's okay to feel neutral. Would you like to talk?"}
@@ -121,7 +115,7 @@ const Dashboard = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <Link
               to="/chat"
-              className="group p-4 bg-gradient-to-br from-primary to-sage-dark rounded-2xl text-primary-foreground shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+              className="group p-4 bg-gradient-to-br from-primary to-sky rounded-2xl text-primary-foreground shadow-soft hover:shadow-glow transition-all duration-300 hover:-translate-y-1"
             >
               <MessageCircle className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-sm mb-1">Talk to AI</h3>
@@ -130,7 +124,7 @@ const Dashboard = () => {
 
             <Link
               to="/services"
-              className="group p-4 bg-card border border-border/50 rounded-2xl hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+              className="group p-4 bg-card border border-border/50 rounded-2xl hover:shadow-medium hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
             >
               <Headphones className="w-8 h-8 mb-3 text-sky group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-sm text-foreground mb-1">Audio Therapy</h3>
@@ -139,7 +133,7 @@ const Dashboard = () => {
 
             <Link
               to="/services"
-              className="group p-4 bg-card border border-border/50 rounded-2xl hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+              className="group p-4 bg-card border border-border/50 rounded-2xl hover:shadow-medium hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
             >
               <Activity className="w-8 h-8 mb-3 text-primary group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-sm text-foreground mb-1">Yoga Therapy</h3>
@@ -148,7 +142,7 @@ const Dashboard = () => {
 
             <Link
               to="/services"
-              className="group p-4 bg-card border border-border/50 rounded-2xl hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+              className="group p-4 bg-card border border-border/50 rounded-2xl hover:shadow-medium hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
             >
               <BookOpen className="w-8 h-8 mb-3 text-lavender group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-sm text-foreground mb-1">Reading</h3>
@@ -173,7 +167,7 @@ const Dashboard = () => {
                   <Link
                     key={chat.id}
                     to="/chat"
-                    className="block p-4 hover:bg-muted/50 transition-colors"
+                    className="block p-4 hover:bg-secondary/50 transition-colors"
                   >
                     <p className="text-sm text-foreground truncate mb-1">
                       {chat.preview}
@@ -199,7 +193,7 @@ const Dashboard = () => {
                 {savedTherapies.map((therapy) => (
                   <div
                     key={therapy.id}
-                    className="p-4 flex items-center justify-between hover:bg-muted/50 transition-colors cursor-pointer"
+                    className="p-4 flex items-center justify-between hover:bg-secondary/50 transition-colors cursor-pointer"
                   >
                     <div>
                       <p className="text-sm font-medium text-foreground mb-1">
@@ -217,10 +211,10 @@ const Dashboard = () => {
           </div>
 
           {/* Wellness Tip */}
-          <div className="mt-8 p-6 bg-gradient-to-r from-lavender-light to-sky-light rounded-2xl border border-lavender/20">
+          <div className="mt-8 p-6 bg-gradient-to-r from-primary/20 to-sky/20 rounded-2xl border border-primary/20">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-soft">
-                <Sparkles className="w-6 h-6 text-lavender" />
+              <div className="w-12 h-12 bg-card rounded-xl flex items-center justify-center shadow-soft">
+                <Sparkles className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <h3 className="font-display font-semibold text-foreground mb-1">

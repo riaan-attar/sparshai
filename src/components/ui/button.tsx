@@ -11,15 +11,15 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft hover:shadow-medium hover:-translate-y-0.5",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border-2 border-primary/30 bg-transparent text-foreground hover:bg-primary/5 hover:border-primary/50",
+        outline: "border-2 border-primary/40 bg-transparent text-foreground hover:bg-primary/10 hover:border-primary/60",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-primary/10 hover:text-primary",
         link: "text-primary underline-offset-4 hover:underline",
-        // Mental Health Custom Variants
-        calm: "bg-sage-light text-sage-dark hover:bg-sage/20 border border-sage/20 shadow-soft hover:shadow-medium hover:-translate-y-0.5",
-        hero: "bg-gradient-to-r from-primary to-sage-dark text-primary-foreground shadow-glow hover:shadow-medium hover:-translate-y-1 hover:scale-[1.02] font-semibold",
-        soft: "bg-lavender-light text-lavender-dark hover:bg-lavender/30 border border-lavender/20",
-        glass: "bg-white/60 backdrop-blur-md text-foreground border border-white/30 hover:bg-white/80 shadow-soft",
+        // Dark Theme Custom Variants
+        calm: "bg-secondary text-foreground hover:bg-secondary/80 border border-border/50 shadow-soft hover:shadow-medium hover:-translate-y-0.5",
+        hero: "bg-gradient-to-r from-primary to-sky text-primary-foreground shadow-glow hover:shadow-medium hover:-translate-y-1 hover:scale-[1.02] font-semibold",
+        soft: "bg-lavender-light text-lavender-dark hover:bg-lavender/20 border border-lavender/30",
+        glass: "bg-card/60 backdrop-blur-md text-foreground border border-border/40 hover:bg-card/80 shadow-soft",
         accent: "bg-accent text-accent-foreground hover:bg-accent/80 shadow-soft",
       },
       size: {

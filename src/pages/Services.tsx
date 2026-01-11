@@ -61,7 +61,7 @@ const services = [
       "Engage in guided self-reflection sessions and AI-led emotional conversations in a safe, judgment-free space.",
     features: ["Self-reflection", "Emotional conversations", "Venting sessions", "AI support"],
     color: "sage",
-    gradient: "from-sage to-sage-light",
+    gradient: "from-primary to-sky",
   },
   {
     icon: Stethoscope,
@@ -88,7 +88,7 @@ const services = [
       "Explore mindfulness practices and inner peace content designed to connect you with your deeper self.",
     features: ["Mindfulness", "Inner peace", "Spiritual reflections", "Inclusive practices"],
     color: "sage",
-    gradient: "from-sage to-mint",
+    gradient: "from-primary to-mint",
   },
   {
     icon: Heart,
@@ -106,19 +106,19 @@ const services = [
       "Your 24/7 AI companion that listens without judgment, provides support, and guides you through difficult moments.",
     features: ["24/7 availability", "Non-judgmental", "Personalized support", "Crisis detection"],
     color: "primary",
-    gradient: "from-primary to-sage-dark",
+    gradient: "from-primary to-sky",
     highlighted: true,
   },
 ];
 
 const colorClasses = {
-  primary: "bg-primary/10 text-primary border-primary/20",
-  sage: "bg-sage-light text-sage-dark border-sage/20",
-  lavender: "bg-lavender-light text-lavender-dark border-lavender/20",
-  rose: "bg-rose-light text-destructive border-rose/20",
-  sky: "bg-sky-light text-sky-dark border-sky/20",
-  peach: "bg-peach-light text-peach-dark border-peach/20",
-  mint: "bg-mint-light text-primary border-mint/20",
+  primary: "bg-primary/20 text-primary border-primary/30",
+  sage: "bg-primary/15 text-primary border-primary/20",
+  lavender: "bg-lavender-light text-lavender border-lavender/30",
+  rose: "bg-rose-light text-rose border-rose/30",
+  sky: "bg-sky-light text-sky border-sky/30",
+  peach: "bg-peach-light text-peach border-peach/30",
+  mint: "bg-mint-light text-mint border-mint/30",
 };
 
 const Services = () => {
@@ -127,17 +127,17 @@ const Services = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 gradient-calm">
+      <section className="pt-24 pb-16 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-primary/20 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/80 backdrop-blur-sm rounded-full border border-border/50 mb-6">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-foreground">
                 Holistic Mental Health Support
               </span>
             </div>
             <h1 className="font-display font-bold text-4xl md:text-5xl text-foreground mb-6">
-              Our Therapy Services
+              Our Services
             </h1>
             <p className="text-lg text-muted-foreground">
               Explore our comprehensive range of evidence-based therapeutic approaches,
@@ -148,7 +148,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
@@ -156,18 +156,18 @@ const Services = () => {
                 key={service.title}
                 className={`group relative p-6 bg-card rounded-2xl border shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
                   service.highlighted
-                    ? "border-primary/30 ring-2 ring-primary/10"
-                    : "border-border/50"
+                    ? "border-primary/40 ring-2 ring-primary/20"
+                    : "border-border/50 hover:border-primary/30"
                 }`}
               >
                 {/* Gradient Background */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                  className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
                 />
 
                 {/* Highlighted Badge */}
                 {service.highlighted && (
-                  <div className="absolute top-4 right-4 px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
+                  <div className="absolute top-4 right-4 px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">
                     Featured
                   </div>
                 )}
@@ -197,7 +197,7 @@ const Services = () => {
                     {service.features.map((feature) => (
                       <span
                         key={feature}
-                        className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-lg"
+                        className="px-2 py-1 bg-secondary text-muted-foreground text-xs rounded-lg"
                       >
                         {feature}
                       </span>
@@ -207,7 +207,7 @@ const Services = () => {
                   {/* CTA */}
                   <Link to={service.title === "AI Chatbot" ? "/chat" : "#"}>
                     <Button variant="calm" size="sm" className="w-full gap-2">
-                      {service.title === "AI Chatbot" ? "Start Chatting" : "Explore"}
+                      {service.title === "AI Chatbot" ? "Start Chatting" : "Let's Explore"}
                       <ArrowRight className="w-4 h-4" />
                     </Button>
                   </Link>
@@ -219,7 +219,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 gradient-calm">
+      <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-display font-bold text-3xl text-foreground mb-4">

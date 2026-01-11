@@ -40,17 +40,17 @@ const features = [
 ];
 
 const colorClasses = {
-  primary: "bg-primary/10 text-primary",
-  sage: "bg-sage-light text-sage-dark",
-  lavender: "bg-lavender-light text-lavender-dark",
+  primary: "bg-primary/20 text-primary",
+  sage: "bg-primary/15 text-primary",
+  lavender: "bg-lavender-light text-lavender",
   rose: "bg-rose-light text-rose",
-  sky: "bg-sky-light text-sky-dark",
-  peach: "bg-peach-light text-peach-dark",
+  sky: "bg-sky-light text-sky",
+  peach: "bg-peach-light text-peach",
 };
 
 const Features = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-card">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -68,7 +68,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="group p-6 bg-card rounded-2xl border border-border/50 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+              className="group p-6 bg-secondary/50 rounded-2xl border border-border/50 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 hover:border-primary/30"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div

@@ -49,10 +49,10 @@ const About = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 gradient-calm">
+      <section className="pt-24 pb-16 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-primary/20 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/80 backdrop-blur-sm rounded-full border border-border/50 mb-6">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-foreground">Our Story</span>
             </div>
@@ -69,7 +69,7 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-16">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -91,8 +91,8 @@ const About = () => {
                 </p>
               </div>
               <div className="relative">
-                <div className="aspect-square rounded-3xl bg-gradient-to-br from-sage-light via-sky-light to-lavender-light flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-sage-dark flex items-center justify-center shadow-glow">
+                <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary/20 via-sky/20 to-lavender/20 flex items-center justify-center border border-border/50">
+                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-sky flex items-center justify-center shadow-glow">
                     <Heart className="w-16 h-16 text-primary-foreground" />
                   </div>
                 </div>
@@ -103,7 +103,7 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display font-bold text-3xl text-foreground mb-4">
@@ -117,9 +117,9 @@ const About = () => {
             {values.map((value) => (
               <div
                 key={value.title}
-                className="p-6 bg-card rounded-2xl border border-border/50 shadow-soft hover:shadow-medium transition-all duration-300"
+                className="p-6 bg-secondary/50 rounded-2xl border border-border/50 shadow-soft hover:shadow-medium hover:border-primary/30 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4">
                   <value.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display font-semibold text-lg text-foreground mb-2">
@@ -135,7 +135,7 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display font-bold text-3xl text-foreground mb-4">
@@ -150,9 +150,9 @@ const About = () => {
             {team.map((member) => (
               <div
                 key={member.name}
-                className="text-center p-6 bg-card rounded-2xl border border-border/50 shadow-soft"
+                className="text-center p-6 bg-card rounded-2xl border border-border/50 shadow-soft hover:shadow-medium hover:border-primary/30 transition-all duration-300"
               >
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-sage-dark mx-auto mb-4 flex items-center justify-center text-primary-foreground font-bold text-2xl">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-sky mx-auto mb-4 flex items-center justify-center text-primary-foreground font-bold text-2xl">
                   {member.name.charAt(0)}
                 </div>
                 <h3 className="font-display font-semibold text-foreground mb-1">

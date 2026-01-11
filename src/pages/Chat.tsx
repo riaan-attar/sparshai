@@ -1,12 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import {
   Send,
-  Sparkles,
   Heart,
-  Trash2,
   RotateCcw,
   AlertCircle,
 } from "lucide-react";
@@ -51,7 +48,6 @@ const Chat = () => {
   }, [messages]);
 
   const generateResponse = (userMessage: string): string => {
-    // Simple empathetic responses - in production, this would call an AI API
     const lowerMessage = userMessage.toLowerCase();
 
     if (lowerMessage.includes("anxious") || lowerMessage.includes("anxiety")) {
@@ -82,7 +78,6 @@ const Chat = () => {
       return "Hello! 😊 It's good to see you here. How are you feeling today? I'm here to listen and support you in any way I can.";
     }
 
-    // Default empathetic response
     return "Thank you for sharing that with me. 💚 Your feelings are valid, and I'm here to listen without judgment. Can you tell me more about how this has been affecting you? Sometimes talking through things can help us see them more clearly.";
   };
 
@@ -100,7 +95,6 @@ const Chat = () => {
     setInput("");
     setIsTyping(true);
 
-    // Simulate AI thinking
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     const assistantMessage: Message = {
@@ -144,11 +138,11 @@ const Chat = () => {
 
       <main className="flex-1 pt-16 flex flex-col">
         {/* Chat Header */}
-        <div className="border-b border-border/50 bg-card/50 backdrop-blur-sm">
+        <div className="border-b border-border/50 bg-card/80 backdrop-blur-sm">
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-sage-dark flex items-center justify-center shadow-soft">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-sky flex items-center justify-center shadow-soft">
                   <Heart className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div>
@@ -187,7 +181,7 @@ const Chat = () => {
                   } animate-slide-up`}
                 >
                   {message.role === "assistant" && (
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-sage-dark flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-sky flex items-center justify-center flex-shrink-0">
                       <Heart className="w-5 h-5 text-primary-foreground" />
                     </div>
                   )}
@@ -195,7 +189,7 @@ const Chat = () => {
                     className={`max-w-[80%] p-4 rounded-2xl ${
                       message.role === "user"
                         ? "bg-primary text-primary-foreground rounded-tr-md"
-                        : "bg-sage-light text-foreground rounded-tl-md"
+                        : "bg-secondary text-foreground rounded-tl-md border border-border/50"
                     }`}
                   >
                     <p className="text-sm leading-relaxed whitespace-pre-wrap">
@@ -220,18 +214,18 @@ const Chat = () => {
               {/* Typing Indicator */}
               {isTyping && (
                 <div className="flex gap-3 animate-slide-up">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-sage-dark flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-sky flex items-center justify-center flex-shrink-0">
                     <Heart className="w-5 h-5 text-primary-foreground" />
                   </div>
-                  <div className="bg-sage-light rounded-2xl rounded-tl-md p-4">
+                  <div className="bg-secondary rounded-2xl rounded-tl-md p-4 border border-border/50">
                     <div className="flex gap-1">
-                      <span className="w-2 h-2 bg-sage rounded-full animate-bounce" />
+                      <span className="w-2 h-2 bg-primary rounded-full animate-bounce" />
                       <span
-                        className="w-2 h-2 bg-sage rounded-full animate-bounce"
+                        className="w-2 h-2 bg-primary rounded-full animate-bounce"
                         style={{ animationDelay: "0.1s" }}
                       />
                       <span
-                        className="w-2 h-2 bg-sage rounded-full animate-bounce"
+                        className="w-2 h-2 bg-primary rounded-full animate-bounce"
                         style={{ animationDelay: "0.2s" }}
                       />
                     </div>
@@ -246,7 +240,7 @@ const Chat = () => {
 
         {/* Quick Prompts */}
         {messages.length <= 2 && (
-          <div className="border-t border-border/50 bg-muted/30">
+          <div className="border-t border-border/50 bg-card/50">
             <div className="container mx-auto px-4 py-3 max-w-3xl">
               <p className="text-xs text-muted-foreground mb-2">
                 Quick prompts to get started:
@@ -256,7 +250,7 @@ const Chat = () => {
                   <button
                     key={prompt}
                     onClick={() => handleQuickPrompt(prompt)}
-                    className="px-3 py-1.5 bg-card border border-border/50 rounded-full text-xs text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-all duration-200"
+                    className="px-3 py-1.5 bg-secondary border border-border/50 rounded-full text-xs text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/10 transition-all duration-200"
                   >
                     {prompt}
                   </button>
@@ -270,8 +264,8 @@ const Chat = () => {
         <div className="border-t border-border/50 bg-card/80 backdrop-blur-sm">
           <div className="container mx-auto px-4 py-4 max-w-3xl">
             {/* Disclaimer */}
-            <div className="flex items-start gap-2 mb-3 p-3 bg-rose-light/50 rounded-xl border border-rose/20">
-              <AlertCircle className="w-4 h-4 text-destructive flex-shrink-0 mt-0.5" />
+            <div className="flex items-start gap-2 mb-3 p-3 bg-rose-light/30 rounded-xl border border-rose/20">
+              <AlertCircle className="w-4 h-4 text-rose flex-shrink-0 mt-0.5" />
               <p className="text-xs text-muted-foreground">
                 This AI is for support only, not medical advice. If you're in crisis,
                 please contact emergency services or a crisis helpline.
@@ -287,7 +281,7 @@ const Chat = () => {
                   onKeyDown={handleKeyDown}
                   placeholder="Share what's on your mind..."
                   rows={1}
-                  className="w-full px-4 py-3 bg-muted border border-border/50 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 text-sm placeholder:text-muted-foreground"
+                  className="w-full px-4 py-3 bg-secondary border border-border/50 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 text-sm placeholder:text-muted-foreground text-foreground"
                   style={{ minHeight: "48px", maxHeight: "120px" }}
                 />
               </div>
