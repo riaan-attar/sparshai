@@ -68,7 +68,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="group p-6 bg-secondary/50 rounded-2xl border border-border/50 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 hover:border-primary/30"
+              className="group p-6 bg-secondary/50 rounded-2xl border border-border/50 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div

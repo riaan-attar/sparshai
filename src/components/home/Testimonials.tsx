@@ -46,7 +46,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              className="relative p-6 bg-secondary/50 rounded-2xl border border-border/50 shadow-soft hover:shadow-medium hover:border-primary/30 transition-all duration-300"
+              className="relative p-6 bg-secondary/50 rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300"
             >
               {/* Quote Icon */}
               <div className="absolute -top-3 -left-3 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">

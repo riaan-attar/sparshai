@@ -5,26 +5,19 @@ import { MessageCircle, Sparkles, Heart } from "lucide-react";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-breathe" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-lavender/10 rounded-full blur-3xl animate-breathe" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky/5 rounded-full blur-3xl animate-breathe" style={{ animationDelay: "4s" }} />
-      </div>
-
-      {/* Floating Elements */}
+      {/* Subtle animated dots */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 animate-float" style={{ animationDelay: "0s" }}>
-          <div className="w-4 h-4 bg-primary/30 rounded-full" />
+          <div className="w-2 h-2 bg-primary/40 rounded-full" />
         </div>
         <div className="absolute top-1/3 right-1/4 animate-float" style={{ animationDelay: "1s" }}>
-          <div className="w-6 h-6 bg-lavender/30 rounded-full" />
+          <div className="w-3 h-3 bg-lavender/40 rounded-full" />
         </div>
         <div className="absolute bottom-1/3 left-1/3 animate-float" style={{ animationDelay: "2s" }}>
-          <div className="w-3 h-3 bg-sky/30 rounded-full" />
+          <div className="w-2 h-2 bg-sky/40 rounded-full" />
         </div>
         <div className="absolute bottom-1/4 right-1/3 animate-float" style={{ animationDelay: "3s" }}>
-          <div className="w-5 h-5 bg-peach/30 rounded-full" />
+          <div className="w-2 h-2 bg-peach/40 rounded-full" />
         </div>
       </div>
 
@@ -89,15 +82,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-            fill="hsl(210 45% 13%)"
-          />
-        </svg>
-      </div>
     </section>
   );
 };
