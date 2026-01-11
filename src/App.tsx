@@ -8,6 +8,9 @@ import Services from "./pages/Services";
 import Chat from "./pages/Chat";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
+import AudioTherapy from "./pages/AudioTherapy";
+import ReadingTherapy from "./pages/ReadingTherapy";
+import YogaTherapy from "./pages/YogaTherapy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +24,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/audio-therapy" element={<AudioTherapy />} />
+          <Route path="/services/reading-therapy" element={<ReadingTherapy />} />
+          <Route path="/services/yoga-therapy" element={<YogaTherapy />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />

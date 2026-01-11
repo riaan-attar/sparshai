@@ -70,7 +70,7 @@ const ServicesPreview = () => {
             <Link
               key={service.title}
               to="/services"
-              className="group p-4 bg-card/80 backdrop-blur-sm rounded-2xl border border-border/50 hover:bg-card hover:shadow-medium hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
+              className="group p-4 bg-card/80 backdrop-blur-sm rounded-2xl border border-border/50 hover:bg-card hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
             >
               <div
                 className={`w-12 h-12 ${service.color} rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform duration-300`}

@@ -26,6 +26,7 @@ const services = [
     features: ["Guided meditations", "Relaxation sounds", "Sleep stories", "Breathing exercises"],
     color: "sky",
     gradient: "from-sky to-sky-light",
+    link: "/services/audio-therapy",
   },
   {
     icon: BookOpen,
@@ -35,6 +36,7 @@ const services = [
     features: ["Motivational articles", "Daily affirmations", "Emotional healing content", "Self-help guides"],
     color: "lavender",
     gradient: "from-lavender to-lavender-light",
+    link: "/services/reading-therapy",
   },
   {
     icon: Activity,
@@ -44,6 +46,7 @@ const services = [
     features: ["Beginner-friendly poses", "Breathing exercises", "Stress relief routines", "Mindful movement"],
     color: "mint",
     gradient: "from-primary to-mint",
+    link: "/services/yoga-therapy",
   },
   {
     icon: Smile,
@@ -53,6 +56,7 @@ const services = [
     features: ["Mood-lifting content", "Humor clips", "Dopamine activities", "Joy exercises"],
     color: "peach",
     gradient: "from-peach to-peach-light",
+    link: "#",
   },
   {
     icon: MessageSquare,
@@ -62,6 +66,7 @@ const services = [
     features: ["Self-reflection", "Emotional conversations", "Venting sessions", "AI support"],
     color: "sage",
     gradient: "from-primary to-sky",
+    link: "/chat",
   },
   {
     icon: Stethoscope,
@@ -71,6 +76,7 @@ const services = [
     features: ["Licensed therapists", "Personalized plans", "Expert guidance", "Confidential sessions"],
     color: "rose",
     gradient: "from-rose to-rose-light",
+    link: "#",
   },
   {
     icon: Baby,
@@ -80,6 +86,7 @@ const services = [
     features: ["Child-friendly UI", "Emotional learning", "Calm storytelling", "Fun exercises"],
     color: "sky",
     gradient: "from-sky to-lavender",
+    link: "#",
   },
   {
     icon: Leaf,
@@ -89,6 +96,7 @@ const services = [
     features: ["Mindfulness", "Inner peace", "Spiritual reflections", "Inclusive practices"],
     color: "sage",
     gradient: "from-primary to-mint",
+    link: "#",
   },
   {
     icon: Heart,
@@ -98,6 +106,7 @@ const services = [
     features: ["Trauma support", "Burnout recovery", "Sleep improvement", "Anxiety relief"],
     color: "lavender",
     gradient: "from-lavender to-rose",
+    link: "#",
   },
   {
     icon: MessageCircle,
@@ -108,6 +117,7 @@ const services = [
     color: "primary",
     gradient: "from-primary to-sky",
     highlighted: true,
+    link: "/chat",
   },
 ];
 
@@ -154,7 +164,7 @@ const Services = () => {
             {services.map((service, index) => (
               <div
                 key={service.title}
-                className={`group relative p-6 bg-card rounded-2xl border shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
+                className={`group relative p-6 bg-card rounded-2xl border transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
                   service.highlighted
                     ? "border-primary/40 ring-2 ring-primary/20"
                     : "border-border/50 hover:border-primary/30"
@@ -205,7 +215,7 @@ const Services = () => {
                   </div>
 
                   {/* CTA */}
-                  <Link to={service.title === "AI Chatbot" ? "/chat" : "#"}>
+                  <Link to={service.link}>
                     <Button variant="calm" size="sm" className="w-full gap-2">
                       {service.title === "AI Chatbot" ? "Start Chatting" : "Let's Explore"}
                       <ArrowRight className="w-4 h-4" />
