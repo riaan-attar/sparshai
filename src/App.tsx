@@ -11,6 +11,11 @@ import About from "./pages/About";
 import AudioTherapy from "./pages/AudioTherapy";
 import ReadingTherapy from "./pages/ReadingTherapy";
 import YogaTherapy from "./pages/YogaTherapy";
+import LaughingTherapy from "./pages/LaughingTherapy";
+import TalkingTherapy from "./pages/TalkingTherapy";
+import ChildTherapy from "./pages/ChildTherapy";
+import SpiritualTherapy from "./pages/SpiritualTherapy";
+import ConsultDoctor from "./pages/ConsultDoctor";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +32,11 @@ const App = () => (
           <Route path="/services/audio-therapy" element={<AudioTherapy />} />
           <Route path="/services/reading-therapy" element={<ReadingTherapy />} />
           <Route path="/services/yoga-therapy" element={<YogaTherapy />} />
+          <Route path="/services/laughing-therapy" element={<LaughingTherapy />} />
+          <Route path="/services/talking-therapy" element={<TalkingTherapy />} />
+          <Route path="/services/child-therapy" element={<ChildTherapy />} />
+          <Route path="/services/spiritual-therapy" element={<SpiritualTherapy />} />
+          <Route path="/services/consult-doctor" element={<ConsultDoctor />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
